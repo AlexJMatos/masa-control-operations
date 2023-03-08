@@ -1,0 +1,86 @@
+<div
+  class="container-fluid"
+  th:fragment="project-form-content"
+  xmlns:th="http://www.thymeleaf.org"
+>
+  <div class="row">
+    <div class="col offset-xl-2 offset-lg-3 offset-md-3 offset-sm-3 offset-3">
+      <form
+        action="#"
+        th:action="@{/agregar-obra}"
+        th:object="${project}"
+        method="post"
+      >
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title h3 mb-4 text-gray-800">Datos de la obra</h1>
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <select class="custom-select" name="clientId" id="clientId" title="Clientes">
+                  <option
+                    th:each="client : ${clients}"
+                    th:value="${client.id}"
+                    th:text="${client.name}"
+                  ></option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <input
+                  type="text"
+                  id="projectName"
+                  class="form-control"
+                  placeholder="Nombre de la obra"
+                  th:field="*{projectName}"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <input
+                  type="text"
+                  id="projectAddress"
+                  class="form-control"
+                  placeholder="Dirección de la obra"
+                  th:field="*{address}"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <input
+                  type="text"
+                  id="projectManager"
+                  class="form-control"
+                  placeholder="Responsable de la obra"
+                  th:field="*{resident}"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-12 offset-xl-3">
+                <div class="form-group col-md-8">
+                  <button type="submit" class="btn btn-primary">
+                    Agregar obra
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="offset-xl-2">
+                <div
+                        th:if="${successful}"
+                        class="alert alert-success"
+                        role="alert"
+                >
+                  Obra agregada y asignada correctamente
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

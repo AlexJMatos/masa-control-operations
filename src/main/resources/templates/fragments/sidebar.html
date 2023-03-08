@@ -1,0 +1,110 @@
+<!-- Sidebar -->
+<div th:fragment="sidebar" xmlns:th="http://www.w3.org/1999/xhtml">
+  <ul
+    class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+    id="accordionSidebar"
+    style="position: fixed; z-index: 1"
+  >
+    <!-- Sidebar - Brand -->
+    <a
+      class="sidebar-brand d-flex align-items-center justify-content-center"
+      href="/"
+    >
+      <div class="sidebar-brand-icon rotate-n-15">
+        <i class="fas fa-fw fa-pen-square"></i>
+      </div>
+      <div class="sidebar-brand-text mx-3">Control de Laboratorio</div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0" />
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
+      <a class="nav-link" href="/">
+        <i class="fas fa-fw fa-home"></i>
+        <span>Menu Principal</span></a
+      >
+    </li>
+
+    <hr class="sidebar-divider" />
+
+    <!-- Heading -->
+    <div class="sidebar-heading">Clientes y Obras</div>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="/agregar-cliente">
+        <i class="fas fa-fw fa-user-plus"></i>
+        <span>Agregar cliente</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="/agregar-obra">
+        <i class="fas fa-fw fa-project-diagram"></i>
+        <span>Agregar obra o proyecto</span>
+      </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block" />
+
+    <!-- Heading -->
+    <div class="sidebar-heading">Resistencia de Concreto</div>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="/seleccionar-proyecto">
+        <i class="fas fa-fw fa-folder-plus"></i>
+        <span>Crear orden de trabajo</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="/seleccionar-orden">
+        <i class="fas fa-fw fa-folder-plus"></i>
+        <span>Crear muestra</span>
+      </a>
+    </li>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="/capturar-ensaye">
+        <i class="fas fa-fw fa-clipboard"></i>
+        <span>Capturar ensaye</span>
+      </a>
+    </li>
+
+    <!-- Nav Item - Tables -->
+    <li class="nav-item">
+      <a class="nav-link" href="/tabla-ensayes">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Tabla de ensayes</span></a
+      >
+    </li>
+
+    <!-- Nav Item - Charts -->
+    <li class="nav-item">
+      <a class="nav-link" href="/generar-reportes">
+        <i class="fas fa-fw fa-file-alt"></i>
+        <span>Generar reportes</span></a
+      >
+    </li>
+
+    <!-- Nav Item - Charts -->
+    <!-- <li class="nav-item">
+      <a class="nav-link" href="/estadisticas">
+        <i class="fas fa-fw fa-chart-area"></i>
+        <span>Estadisticas</span></a
+      >
+    </li> -->
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block" />
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+      <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+  </ul>
+</div>
+<!-- End of Sidebar -->

@@ -1,0 +1,243 @@
+<div
+  class="container-fluid"
+  th:fragment="work-order-form-content"
+  xmlns:th="http://www.thymeleaf.org"
+>
+  <div class="row">
+    <div class="col offset-xl-2 offset-lg-3 offset-md-3 offset-sm-3 offset-3">
+      <form
+        action="#"
+        th:action="@{/obra/{projectId}/agregar-orden(projectId=${project.id})}"
+        th:object="${concreteWorkOrder}"
+        method="post"
+      >
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title h3 mb-4 text-gray-800">Obra o proyecto</h1>
+            <div class="form-group col-md-8">
+              <input type="text"
+              readonly
+              class="form-control"
+              th:value="${project.projectName}">
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title h3 mb-4 text-gray-800">
+              Datos de la orden de trabajo
+            </h1>
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for="sampleDate" class="col-form-label"
+                  >Fecha de muestreo</label
+                >
+                <input
+                  type="date"
+                  id="sampleDate"
+                  class="form-control"
+                  placeholder="Fecha de muestreo"
+                  th:field="*{sampleDate}"
+                />
+              </div>
+              <div
+                th:if="${#fields.hasErrors('sampleDate')}"
+                class="alert alert-danger col-md-4"
+                role="alert"
+                th:errorclass="error-validation"
+                th:errors="*{sampleDate}"
+                th:text="${err}"
+              ></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for="serviceHour" class="col-form-label"
+                  >Hora de servicio</label
+                >
+                <input
+                  type="time"
+                  id="serviceHour"
+                  class="form-control"
+                  placeholder="Horario de servicio"
+                  th:field="*{serviceHour}"
+                />
+              </div>
+              <div
+                th:if="${#fields.hasErrors('serviceHour')}"
+                class="alert alert-danger col-md-4"
+                role="alert"
+                th:errorclass="error-validation"
+                th:errors="*{serviceHour}"
+                th:text="${err}"
+              ></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for="resistanceFc" class="col-form-label"
+                  >Resistencia (kg<sub>f</sub>/cm<sup>2</sup>)</label
+                >
+                <input
+                  type="number"
+                  id="resistanceFc"
+                  class="form-control"
+                  placeholder="Resistencia"
+                  th:field="*{resistanceFc}"
+                  min="0"
+                  max="600"
+                  step="50"
+                />
+              </div>
+              <div
+                th:if="${#fields.hasErrors('resistanceFc')}"
+                class="alert alert-danger col-md-4"
+                role="alert"
+                th:errorclass="error-validation"
+                th:errors="*{resistanceFc}"
+                th:text="${err}"
+              ></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for="concreteSlump" class="col-form-label"
+                  >Revenimiento (cm)</label
+                >
+                <input
+                  type="number"
+                  id="concreteSlump"
+                  class="form-control"
+                  placeholder="Revenimiento"
+                  th:field="*{concreteSlump}"
+                  min="0"
+                  max="100"
+                  step="1"
+                />
+              </div>
+              <div
+                th:if="${#fields.hasErrors('concreteSlump')}"
+                class="alert alert-danger col-md-4"
+                role="alert"
+                th:errorclass="error-validation"
+                th:errors="*{concreteSlump}"
+                th:text="${err}"
+              ></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for="concreteVolume" class="col-form-label"
+                  >Volumen (m<sup>3</sup>)</label
+                >
+                <input
+                  type="number"
+                  id="concreteVolume"
+                  class="form-control"
+                  placeholder="Volumen"
+                  th:field="*{concreteVolume}"
+                  min="0"
+                  max="100"
+                  step="1"
+                />
+              </div>
+              <div
+                th:if="${#fields.hasErrors('concreteVolume')}"
+                class="alert alert-danger col-md-4"
+                role="alert"
+                th:errorclass="error-validation"
+                th:errors="*{concreteVolume}"
+                th:text="${err}"
+              ></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for="tma" class="col-form-label"
+                  >Tamaño máximo de agregado (mm)</label
+                >
+                <input
+                  type="number"
+                  id="tma"
+                  class="form-control"
+                  placeholder="TMA"
+                  th:field="*{tma}"
+                  min="0"
+                  step="1"
+                />
+              </div>
+              <div
+                th:if="${#fields.hasErrors('tma')}"
+                class="alert alert-danger col-md-4"
+                role="alert"
+                th:errorclass="error-validation"
+                th:errors="*{tma}"
+                th:text="${err}"
+              ></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for="designAge" class="col-form-label"
+                  >Edad de diseño (días)</label
+                >
+                <input
+                  type="number"
+                  id="designAge"
+                  class="form-control"
+                  placeholder="Edad de diseño"
+                  th:field="*{designAge}"
+                  min="0"
+                  step="1"
+                />
+              </div>
+              <div
+                th:if="${#fields.hasErrors('designAge')}"
+                class="alert alert-danger col-md-4"
+                role="alert"
+                th:errorclass="error-validation"
+                th:errors="*{designAge}"
+                th:text="${err}"
+              ></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for="concreteProvider" class="col-form-label"
+                  >Proveedor de concreto</label
+                >
+                <input
+                  type="text"
+                  id="concreteProvider"
+                  class="form-control"
+                  th:field="*{concreteProvider}"
+                />
+              </div>
+              <div
+                th:if="${#fields.hasErrors('concreteProvider')}"
+                class="alert alert-danger col-md-4"
+                role="alert"
+                th:errorclass="error-validation"
+                th:errors="*{concreteProvider}"
+                th:text="${err}"
+              ></div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-12 offset-xl-3">
+                <div class="form-group col-md-8">
+                  <button type="submit" class="btn btn-primary">
+                    Agregar orden de trabajo
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="offset-xl-2">
+                <div
+                  th:if="${successful}"
+                  class="alert alert-success"
+                  role="alert"
+                >
+                  Orden agregada correctamente
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
